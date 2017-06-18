@@ -4,18 +4,39 @@
      include 'database.php';
      if(isset($_POST['Save']))
      {
-     	 $fullname = $_POST['fullname'];
-     	 $city = $_POST['city'];
-     	 $state = $_POST['state'];
-     	 $gender =$_POST['gender'];
-     	 $phone_number =$_POST['phone_number'];
-     	 $login_id =$_SESSION['login_id'];
-     	 $temp_name = $_FILES['profile_pic']['tmp_name'];
-     	 $location = 'profile_pics/';
+     	  echo $fullname = mysqli_real_escape_string($conn,$_POST['fullname']);
+     	  echo $city = mysqli_real_escape_string($conn,$_POST['city']);
+     	  $state = mysqli_real_escape_string($conn,$_POST['state']);
+     	  $gender =mysqli_real_escape_string($conn,$_POST['gender']);
+     	  $phone_number =mysqli_real_escape_string($conn,$_POST['phone_number']);
+     	  $login_id =$_SESSION['login_id'];
+            //for moving file
+     	  $temp_name = $_FILES['profile_pic']['tmp_name'];
+     	  $location = 'profile_pics/'.basename($_FILES['profile_pic']['name']);
 
+            echo $login_id = $_SESSION['login_id'];
+            $profile_pic = basename($_FILES["profile_pic"]['name']);
 
+            $query="insert into Users values (null,'$login_id','$profile_pic','$fullname','$email','$city','$state,'$gender','$phone_number');";
+            
+            
+            if(mysqli_query($conn, $query))
+            {
+               
+               header("location:view_profile.php");
 
+            }
 
-     	//$query = "insert into Users values(null,
+            else 
+            {
+               echo "Failed";
+               mysqli_error($conn);
+               //header("Location:profile.php");
+            }
+     }
+
+     else
+     {
+          header("Location:profile.php");
      }
 ?>

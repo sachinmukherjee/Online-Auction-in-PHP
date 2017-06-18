@@ -17,7 +17,7 @@
 	<input type="text" name="fullname"><span style="color: red;">*</span><br><br>
 
 	<label for="email">Email</label>
-	<input type="text" name="email"><span style="color: red;">*</span><br><br>
+	<input type="email" name="email"><span style="color: red;">*</span><br><br>
 
 	<label>City</label>
 	<input type="text" name="city"><span style="color: red;">*</span><br><br>
