@@ -21,8 +21,8 @@ create table if not exists Users
   email varchar(40) not null references Login(email),
   city char(20) not null,
   state char(20) not null,
-  gender char(2) not null,
-  phone_number long not null,
+  gender char(8) not null,
+  phone_number bigint not null,
   primary key(user_id)
   );
   
@@ -31,7 +31,7 @@ create table if not exists Users
    product_id int(10) not null auto_increment,
    product_name varchar(50) not null,
    dat date not null,
-   tim time not null,
+   finaldate date not null,
    price int not null,
    product_image varchar(100) not null,
    userinfo int(10) not null references Users(user_id),
