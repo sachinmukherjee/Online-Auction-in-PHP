@@ -38,21 +38,22 @@ include 'database.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
-<p><strong><?php echo $product_name;?></strong></p>
-<br><br>
-<p><strong><?php echo $price;?></strong></p>
-<br><br>
-<p><strong>Last Bid </strong></p>&nbsp;
+<div class="container" style="position: relative; top: 3cm;">
+<p><strong>Product Name: <?php echo $product_name;?></strong></p>
+<br>
+<p><strong> Starting Price: <?php echo $price;?></strong></p>
+<br>
+<p><strong>Last Bid: </strong>&nbsp;
 <?php if($final_price==0)
       echo "<strong>0</strong>";
       else 
       	echo "<strong>$final_price</strong>";
 ?>
-
+</p>
+<br>
 <form action = " bidnow.php" method="get" class="form" role="form">
 <div class="form-group">
-	<input type="text" name="mybid" class="form-control">
+<p><strong>Your Bid</strong></p><br><input type="text" name="mybid" class="form-control" style="width: 5cm;">
 	<?php 
 	     if(isset($_GET['mybid']))
 	     {
@@ -78,8 +79,6 @@ include 'database.php';
 </div>
 </form>
 
-
-<br><br>
 <a href = "ongoing_auction.php">Click here to bid more</a>
 </div>
 </body>
