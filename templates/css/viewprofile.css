@@ -1,0 +1,16 @@
+body
+{
+	background-color: lightgreen;
+}
+.viewprofile
+{
+	background-color: lightgreen;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+table,td
+{
+	line-height: 1cm;
+	font-weight: bold;
+}

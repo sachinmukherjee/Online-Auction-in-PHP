@@ -17,9 +17,9 @@
 	<td><label>Password</label></td>
 	<td><input type="password" name="password"></td><td><span style="color:red;">* feild cannot be empty</span></td>
 </tr>
-</form>
 </table>
-	<button type="submit" name="Login">Login</button>
+	<input type="submit" name="Login">
+</form>
 </div>
 
 </body>

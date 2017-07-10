@@ -1,10 +1,10 @@
 <?php 
-    // script for seller authentication login.seller.php //
+    // script for seller authentication login_seller.php //
     
      session_start();
      include 'database.php';
 
-     if(isset($_POST['login']) && isset($_POST['username']) && isset($_POST['password']))
+     if(isset($_POST['Login']) && isset($_POST['username']) && isset($_POST['password']))
      {
      	$username= $_POST['username'];
      	$password = $_POST['password'];

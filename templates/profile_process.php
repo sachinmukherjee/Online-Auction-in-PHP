@@ -18,28 +18,22 @@
             $login_id = $_SESSION['login_id'];
             $profile_pic = basename($_FILES["profile_pic"]['name']);
 
-            $query="insert into Users (user_id,login_id,profile_pic,full_name,email,city,state,gender,phone_number) 
-                    values (null,$login_id,'$profile_pic','$full_name','$email','$city','$state','$gender',$phone_number);";
+            $query="insert into Users values (null,$login_id,'$profile_pic','$full_name','$email','$city','$state','$gender',$phone_number);";
 
             $result = mysqli_query($conn, $query);
-            
-            
-            if(!$result)
-            {  
-               
-               header("Location:profile.php");
 
-            }
-
-            else 
+           
+            
+            if($result)
             {
-              header("Location:view_profile.php");
               $query = "select user_id from Users where login_id = $login_id;";
               $result=mysqli_query($conn,$query);
               $arr = mysqli_fetch_assoc($result);
               $_SESSION['user_id'] = $arr['user_id'];
+              header("Location:view_profile.php");
             }
-     }
+
+    }
 
      else
      {

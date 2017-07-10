@@ -1,4 +1,5 @@
 <?php 
+// php script for viewing profile of user//
      session_start();
      include 'database.php';
 
@@ -18,30 +19,44 @@
      $_SESSION['user_id']= $arr['user_id'];
 
      $src = "/var/www/html/OnlineAuction/profile_pics/$profile_pic";
-     
      $image = file_get_contents($src);
-     echo $image;
+     // include all things in the heading
+ ?>
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Profile</title>
+ 	<link rel="stylesheet" type="text/css" href="css/viewprofile.css">
+ </head>
+ <body>
+ <div class="viewprofile">
+ <table>
+    <img src="<?php echo $image?>" alt="profile_pic">
+
+<tr>
+    <td>Fullname</td><td><?php echo $full_name;?></td>
+</tr>
+<tr>
+    <td>Gender</td><td><?php echo $gender; ?></td>
+</tr>
+<tr>
+    <td>City</td><td><?php echo $city;?></td>
+</tr>
+<tr>    
+    <td>State</td><td><?php echo $state; ?></td>
+</tr>
+     <td>Phone Number</td><td><?php echo $phone_number; ?></td>
+</table>
+     <a href="home.php">Home Page</a>
+</div>
+ 
+ </body>
+ </html> 
+
      
-     // problem in displaying image//
-
-     echo "Fullname ". $full_name;
-     echo "<br><br>";
-     echo "Gender ". $gender;
-     echo "<br><br>";
-     echo "City ".$city;
-     echo "<br><br>";
-     echo "State ".$state;
-     echo "<br><br>";
-     echo "Phone Number ".$phone_number;
-
-     //echo"<a href="home.php">go to home page</a>";
-
-     // include all thing in heading
-
-
 
      
 
 
-?>
 
